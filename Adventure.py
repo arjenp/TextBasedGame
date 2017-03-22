@@ -18,7 +18,7 @@ def startTheAdventure():
         print("Yes some action you proclaim!")
         print("You walk over there and find a beast. Not sure what it is you poke it with te stick you just found.")
         print("The beast RAAWRS and stand ready for the attack!")
-
+        Actions.fightOrDie()
     else:
         print("Well your loss lets continue")
 

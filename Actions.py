@@ -1,4 +1,5 @@
 import WorldInformation
+import PlayerInformation
 
 def standardActions():
     print(" ")
@@ -48,3 +49,27 @@ def chooseYesOrNo():
 
 def fightOrDie():
     print("You are not sure what to do")
+    print("Choose an action:")
+    if PlayerInformation.Player.description == "Mighty Warrior":
+        print("I am a Mighty Warrior I chose to FIGHT. Keyword: Fight")
+        print("Today I am not so mighty. Keyword: Run")
+    elif PlayerInformation.Player.description == "Magical Wizard":
+        print("I will destroy this monster with my mighty spells. Keyword: Fight")
+        print("Today I am not so wizardly. Keyword: Run")
+    elif PlayerInformation.Player.description == "Sneaky Assassin":
+        print("I will kill you without you even knowing it. Keyword: Fight")
+        print("Today I am going to be extra sneaky. Keyword: Run")
+    elif PlayerInformation.Player.description == "Lazy Student":
+        print("I geuss ill fight.. Keyword: Fight")
+        print("What the hell am i doing here. Keyword: Run")
+
+    action = input("Action: ").lower()
+
+    #todo make it better and more stuff with it
+    if action == "fight":
+        print("fight")
+    elif action == "run":
+        print("run")
+    else:
+        print("Not an action")
+        fightOrDie()
