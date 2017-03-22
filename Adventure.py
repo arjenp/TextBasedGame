@@ -22,3 +22,12 @@ def startTheAdventure(player, mob, action_handler):
         print("You avoid all plot hooks and finish the adventure without anything peculiar happening. "
               "Boring! Just go to the damned rock, would you?")
         startTheAdventure(player)
+
+
+    print(player_full + " starts walkin away after his encounter. In the distance he sees a shop.")
+    print("Pretty weird to have a shop in the middle of nowhere. But you enter anyway")
+    action_handler.shoppingTime(player)
+    print("Happy with your shopping you continue")
+    print("You slam the door behind you and a rooftile falls")
+    action_handler.timeToWinOrLose(player)
+
