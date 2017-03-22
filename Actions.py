@@ -81,7 +81,6 @@ class ActionHandler:
 
     def shoppingTime(self):
         player = PlayerInformation.Player()
-        player.gold = 4
         print("The shopkeeper has the following items for sale:")
         print("A shield that boost armor with 5 for 4 gold. Keyword: Shield")
         print("A powerfull staff that boosts magic with 6 for 5 gold. Keyword: Staff")
