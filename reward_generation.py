@@ -1,14 +1,10 @@
 import random
 
 
-class RewardGenerator:
+def generate_loot(modifier):
+    loot_base_amount = random.randint(10, 26)
+    loot_final = int(loot_base_amount * modifier)
+    return loot_final
 
-    def __init__(self):
-        pass
-
-    def generate_loot(self, modifier):
-        loot_base_amount = random.randint(1, 25)
-        loot_final = loot_base_amount * modifier
-        return loot_final
 
 

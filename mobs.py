@@ -1,10 +1,7 @@
 import random
 
-class Mob:
 
-    RAT = ["Rat", 15, 0.25, 3, 0, 0.2]
-    TROLL = ["Troll", 60, 0.35, 16, 5, 2.0]
-    NECROMANCER = ["NECROMANCER", 999, 0.95, 99, 30, 50.0]
+class Mob:
 
     MOB_NAME = 0
     MOB_HIT_POINTS = 1
@@ -29,10 +26,5 @@ class Mob:
         self.armor = attributes[self.MOB_ARMOR]
         self.loot_modifier = attributes[self.MOB_LOOT_MODIFIER]
 
-    def process_damage(self, damage):
-        self.hit_points -= (damage - random.randint(0, self.armor))
-        if self.hit_points <= 0:
-            print("The " + self.name + " dies!")
-            return self.loot_modifier
-
-
+    def get_strength(self):
+        return self.strength
