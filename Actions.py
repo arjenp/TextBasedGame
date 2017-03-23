@@ -73,7 +73,8 @@ class ActionHandler:
         attacker = 0
         defender = 1
         fatality = -1
-        while fatality < 0 | fatality is None:
+        print(fatality)
+        while fatality < 0:
             fatality = self._handle_combat(participants[attacker], participants[defender])
             switch_container = attacker
             attacker = defender
@@ -86,6 +87,7 @@ class ActionHandler:
             return self._process_attack_result(attacker, defender)
         else:
             print("The attack was ineffective!")
+            return -1
 
     def _attack_hit(self, hit_chance):
         return random.uniform(0, 1) < hit_chance
@@ -94,9 +96,12 @@ class ActionHandler:
         damage_dealt = (attacker.get_strength() - random.randint(0, defender.armor))
         print("The attack deals " + str(damage_dealt) + " damage!")
         defender.hit_points -= damage_dealt
+        print(defender.name + " has " + str(defender.hit_points) + " hit points remaining.")
         if defender.hit_points <= 0:
             print(defender.name + " dies!")
+            print(attacker.name + " is victorious!")
             try:
                 return defender.loot_modifier
             except Exception:
                 return 0
+        return -1
