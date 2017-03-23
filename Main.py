@@ -1,9 +1,9 @@
 import WorldInformation
 import Actions
-from PlayerInformation import Player
+import PlayerInformation
 import Adventure
-import reward_generation
 import mobs
+
 
 class GameRunner:
 
@@ -12,8 +12,8 @@ class GameRunner:
 
     def play(self):
         action_handler = Actions.ActionHandler()
-        player = Player()
-        mob = mobs.Mob
+        player = PlayerInformation.Player()
+        mob = mobs.Mob()
 
         WorldInformation.introWorld()
         action_handler.standardActions()
@@ -28,9 +28,6 @@ class GameRunner:
         print("Welcome to the World Of Adventure " + player.name + " the " + player.description)
 
         Adventure.startTheAdventure(player, mob, action_handler)
-
-
-
 
 
 if __name__ == "__main__":

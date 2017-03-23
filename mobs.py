@@ -18,13 +18,13 @@ class Mob:
         self.armor = 1
         self.loot_modifier = None
 
-    def init_mob(self, attributes):
-        self.name = attributes[self.MOB_NAME]
-        self.hit_points = attributes[self.MOB_HIT_POINTS]
-        self.attack = attributes[self.MOB_ATTACK]
-        self.strength = attributes[self.MOB_STRENGTH]
-        self.armor = attributes[self.MOB_ARMOR]
-        self.loot_modifier = attributes[self.MOB_LOOT_MODIFIER]
+    def init_mob(self, mob_type):
+        self.name = mob_type[self.MOB_NAME]
+        self.hit_points = mob_type[self.MOB_HIT_POINTS]
+        self.attack = mob_type[self.MOB_ATTACK]
+        self.strength = mob_type[self.MOB_STRENGTH]
+        self.armor = mob_type[self.MOB_ARMOR]
+        self.loot_modifier = mob_type[self.MOB_LOOT_MODIFIER]
 
     def get_strength(self):
         return self.strength

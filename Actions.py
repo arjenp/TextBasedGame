@@ -1,10 +1,5 @@
 import random
 import WorldInformation
-<<<<<<< HEAD
-import PlayerInformation
-import random
-=======
->>>>>>> jeroens_branch
 
 
 class ActionHandler:
@@ -69,71 +64,17 @@ class ActionHandler:
             print("I will kill you without you even knowing it. Keyword: Fight")
             print("Today I'm going to be extra sneaky. Keyword: Run")
         elif player_description == "Lazy Student":
-<<<<<<< HEAD
-            print("I guess I'll fight.. Keyword: Fight")
-            print("What the hell am I doing here. Keyword: Run")
-
-        return input("Action: ").lower()
-
-    def shoppingTime(self):
-        player = PlayerInformation.Player()
-        print("The shopkeeper has the following items for sale:")
-        print("A shield that boost armor with 5 for 4 gold. Keyword: Shield")
-        print("A powerfull staff that boosts magic with 6 for 5 gold. Keyword: Staff")
-        print("A bucket of water that gives you 2 extra healthpoints(Its better then nothing) for 2 gold. Keyword: Bucket")
-        print("Your current gold is: "+ str(player.gold))
-        itemToBuy = input("What to buy: ").lower()
-        if itemToBuy == "shield" and player.gold >= 4:
-            player.armor = + 5
-            player.gold = - 4
-            print("You feel more powerful with the shield and your armor has increased by 5 to " + player.armor)
-
-        elif itemToBuy == "staff" and player.gold >= 5:
-            player.magicalPower = + 6
-            player.gold = - 5
-            print("You feel more powerful with the staff and your magicalpower has increased by 6 to " + player.magicalPower)
-
-        elif itemToBuy == "bucket" and player.gold >= 2:
-            player.hit_points = + 2
-            player.gold = - 2
-            print("You feel refreshed and can take more hits! Your hitpoint have increased by 2 to " + player.hit_points)
-
-        else:
-            "This isn't an item to buy!"
-            self.shoppingTime()
-        print("Your current gold is: " + str(player.gold))
-
-
-
-    def timeToWinOrLose(self):
-        winningNumber = random.randint(1,20)
-        if winningNumber == 15:
-            print("The tile falls slightly behind you and hits an enemy who was sneaking up on you.")
-            print("You see that it is the necromancer!")
-            print("He appears to be dead.. You have won the game!!")
-            quit()
-        else:
-            print("The tile hits your head")
-            print("YOU HAVE DIED")
-            quit()
-
-
-=======
             print("I guess I'll fight... Keyword: Fight")
             print("NOPE! Keyword: Run")
+
         return input("Action: ").lower()
 
     def _combat_loop(self, player, mob):
-        participants = [player, mob]
-        attacker = 0
-        defender = 1
         fatality = -1
-        print(fatality)
         while fatality < 0:
-            fatality = self._handle_combat(participants[attacker], participants[defender])
-            switch_container = attacker
-            attacker = defender
-            defender = switch_container
+            fatality = self._handle_combat(player, mob)
+            if fatality < 0:
+                fatality = self._handle_combat(mob, player)
         return fatality
 
     def _handle_combat(self, attacker, defender):
@@ -154,10 +95,48 @@ class ActionHandler:
         print(defender.name + " has " + str(defender.hit_points) + " hit points remaining.")
         if defender.hit_points <= 0:
             print(defender.name + " dies!")
-            print(attacker.name + " is victorious!")
+            print(attacker.name + " is victorious!\n")
             try:
                 return defender.loot_modifier
             except Exception:
                 return 0
         return -1
->>>>>>> jeroens_branch
+
+    def shoppingTime(self, player):
+        print("The shopkeeper has the following items for sale:")
+        print("A shield that boost armor with 5 for 4 gold. Keyword: Shield")
+        print("A powerful staff that boosts magic with 6 for 5 gold. Keyword: Staff")
+        print("A bucket of water that gives you 2 extra hit points for 2 gold (it's better than nothing). Keyword: Bucket")
+        print("Your current gold is: " + str(player.gold))
+        itemToBuy = input("What to buy: ").lower()
+        if itemToBuy == "shield" and player.gold >= 4:
+            player.armor += 5
+            player.gold -= 4
+            print("You feel more powerful with the shield and your armor has increased by 5 to " + str(player.armor))
+
+        elif itemToBuy == "staff" and player.gold >= 5:
+            player.magical_power += 6
+            player.gold -= 5
+            print(
+                "You feel more powerful with the staff and your magical power has increased by 6 to " + str(player.magical_power))
+
+        elif itemToBuy == "bucket" and player.gold >= 2:
+            player.hit_points += 2
+            player.gold -= 2
+            print("You feel refreshed and can take more hits! Your hit points have increased by 2 to " + str(player.hit_points))
+        else:
+            "This isn't an item to buy!"
+            self.shoppingTime(player)
+        print("Your current gold is: " + str(player.gold))
+
+    def timeToWinOrLose(self):
+        winningNumber = random.randint(1, 20)
+        if winningNumber == 15:
+            print("The tile falls slightly behind you and hits an enemy who was sneaking up on you.")
+            print("You see that it is the necromancer!")
+            print("He appears to be dead... You have won the game!!")
+        else:
+            print("The tile was the accursed Roof Tile of Hero Slaying +5!")
+            print("YOU HAVE DIED.")
+        print("THE END.")
+        quit()

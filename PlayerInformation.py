@@ -3,7 +3,7 @@ class Player:
     def __init__(self):
         self.name = ""
         self.description = ""
-        self.magicalPower = 0
+        self.magical_power = 0
         self.attack = 0.0
         self.strenght = 0
         self.armor = 0
@@ -27,7 +27,7 @@ class Player:
             self.description = "Mighty Warrior"
             self.attack = 0.75
             self.strenght = 10
-            self.magicalPower = 1
+            self.magical_power = 1
             self.armor = 10
             self.hit_points = 100
 
@@ -35,7 +35,7 @@ class Player:
             self.description = "Magical Wizard"
             self.attack = 0.50
             self.strenght = 2
-            self.magicalPower = 15
+            self.magical_power = 15
             self.armor = 3
             self.hit_points = 60
 
@@ -43,7 +43,7 @@ class Player:
             self.description = "Sneaky Assassin"
             self.attack = 0.90
             self.strenght = 8
-            self.magicalPower = 4
+            self.magical_power = 4
             self.armor = 5
             self.hit_points = 80
 
@@ -51,7 +51,7 @@ class Player:
             self.description = "Lazy Student"
             self.attack = 0.35
             self.strenght = 1
-            self.magicalPower = 1
+            self.magical_power = 1
             self.armor = 1
             self.hit_points = 70
 
