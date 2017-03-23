@@ -1,30 +1,29 @@
 import WorldInformation
 import Actions
-import PlayerInformation
+from PlayerInformation import Player
 import Adventure
 import reward_generation
-import Mob
+import mobs
 
 class GameRunner:
 
     def __init__(self):
-        self.reward_generator = reward_generation.RewardGenerator()
+        pass
 
     def play(self):
         action_handler = Actions.ActionHandler()
-        player = PlayerInformation.Player()
-        mob = Mob.Mob
+        player = Player()
+        mob = mobs.Mob
 
         WorldInformation.introWorld()
         action_handler.standardActions()
 
 
         print("You will now be choosing your name and your class.")
-        playerName = input("What is your name: ")
-        print("Welcome to the game" + playerName + "!")
+        player_name = input("What is your name: ")
+        print("Welcome to the game" + player_name + "!")
 
-
-        player.set_player_information(playerName)
+        player.set_player_information(player_name)
 
         print("Welcome to the World Of Adventure " + player.name + " the " + player.description)
 

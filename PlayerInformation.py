@@ -4,17 +4,16 @@ class Player:
         self.name = ""
         self.description = ""
         self.magicalPower = 0
-        self.attack = 0.
+        self.attack = 0.0
         self.strenght = 0
         self.armor = 0
         self.gold = 0
         self.hit_points = 0
 
-    def __str__(self):
-        return "{}\n=====\n{}\nValue: {}\n".format(self.name, self.description, self.magicalPower, self.strenght, self.armor)
+    def get_strength(self):
+        return self.strenght
 
     def set_player_information(self, player_name):
-
         print("\nPlease choose your class: ")
         print("For the mighty warrior. Keyword: Warrior")
         print("For the magical wizard. Keyword: Wizard")
@@ -59,7 +58,3 @@ class Player:
         else:
             print("Please choose a viable class")
             self.set_player_information(player_name)
-
-
-
-
