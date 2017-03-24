@@ -4,6 +4,9 @@ import WorldInformation
 
 class ActionHandler:
 
+    def getUserInput(self,text):
+        return input(text).lower()
+
     def standardActions(self):
         print(" ")
         print("You can choose between the following actions:")
@@ -11,7 +14,7 @@ class ActionHandler:
         print("Get specific information about an object or beast. Keyword: info Object/beast name")
         print("Continue with the adventure. Keyword: continue")
         print("Exit the game. All progress will be lost. Keyword: Exit")
-        standard_action = input("Action: ").lower()
+        standard_action = ActionHandler.getUserInput(self,"action: ")
 
         if standard_action == "worldinformation":
             WorldInformation.introWorld()
@@ -33,7 +36,7 @@ class ActionHandler:
             self.standardActions()
 
     def choose_yes_or_no(self):
-        action = input("Choose yes or no: ").lower()
+        action = ActionHandler.getUserInput(self,"Choose yes or no: ")
         if action == "yes" or action == "no":
             return action
         else:
@@ -67,7 +70,7 @@ class ActionHandler:
             print("I guess I'll fight... Keyword: Fight")
             print("NOPE! Keyword: Run")
 
-        return input("Action: ").lower()
+        return ActionHandler.getUserInput(self,"Action")
 
     def _combat_loop(self, player, mob):
         fatality = -1
@@ -108,7 +111,7 @@ class ActionHandler:
         print("A powerful staff that boosts magic with 6 for 5 gold. Keyword: Staff")
         print("A bucket of water that gives you 2 extra hit points for 2 gold (it's better than nothing). Keyword: Bucket")
         print("Your current gold is: " + str(player.gold))
-        itemToBuy = input("What to buy: ").lower()
+        itemToBuy = ActionHandler.getUserInput(self,"What to buy: ")
         if itemToBuy == "shield" and player.gold >= 4:
             player.armor += 5
             player.gold -= 4
@@ -140,3 +143,8 @@ class ActionHandler:
             print("YOU HAVE DIED.")
         print("THE END.")
         quit()
+
+
+
+
+
