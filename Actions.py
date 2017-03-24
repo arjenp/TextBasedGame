@@ -69,7 +69,7 @@ class ActionHandler:
 
         return input("Action: ").lower()
 
-    def _combat_loop(self, player, mob):
+    def combat_loop(self, player, mob):
         fatality = -1
         while fatality < 0:
             fatality = self._handle_combat(player, mob)
@@ -90,6 +90,8 @@ class ActionHandler:
 
     def _process_attack_result(self, attacker, defender):
         damage_dealt = (attacker.get_strength() - random.randint(0, defender.armor))
+        if damage_dealt < 0:
+            damage_dealt = 0
         print("The attack deals " + str(damage_dealt) + " damage!")
         defender.hit_points -= damage_dealt
         print(defender.name + " has " + str(defender.hit_points) + " hit points remaining.")
